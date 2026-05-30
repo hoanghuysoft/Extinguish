@@ -41,9 +41,9 @@ tasks.withType<JavaCompile> {
 }
 
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "21"
+tasks.withType<KotlinJvmCompile>().configureEach {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
     }
 }
 
