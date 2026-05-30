@@ -20,7 +20,7 @@ fun SettingLazyColumn(
     modifier: Modifier = Modifier,
     state: LazyListState = rememberLazyListState(),
     contentPadding: PaddingValues = PaddingValues(0.dp),
-    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(12.dp),
+    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(24.dp),
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),
     userScrollEnabled: Boolean = true,
@@ -28,7 +28,7 @@ fun SettingLazyColumn(
 ) = LazyColumn(
     modifier = modifier.fillMaxSize(),
     state = state,
-    contentPadding = contentPadding.add(horizontal = 12.dp).add(bottom = 16.dp),
+    contentPadding = contentPadding.add(horizontal = 16.dp).add(bottom = 16.dp),
     reverseLayout = false,
     verticalArrangement = verticalArrangement,
     horizontalAlignment = horizontalAlignment,

@@ -16,15 +16,11 @@ fun EnablerCard(
     onCheckedChange: (Boolean) -> Unit
 ) {
     SettingCard {
-        ExtinguishListItem(
-            headlineContent = {
-                Text(text)
-            },
-            trailingContent = {
-                Switch(checked, onCheckedChange)
-            },
-            onClick = { onCheckedChange(!checked) },
-            morePaddingForPureText = true
+        SettingListItemWithSwitch(
+            modifier = modifier,
+            headline = text,
+            checked = checked,
+            onCheckedChange = onCheckedChange
         )
     }
 }

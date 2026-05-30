@@ -82,10 +82,12 @@ fun SettingListItemWithSlider(
             )
         },
         supportingContent = supporting?.let {
-            { Text(it) }
+            { Text(it, color = MaterialTheme.colorScheme.onSurfaceVariant) }
         },
         leadingContent = leadingContent,
-        morePaddingForPureText = true
+        morePaddingForPureText = true,
+        headlineTextStyle = MaterialTheme.typography.titleMedium.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.Normal),
+        supportingTextStyle = MaterialTheme.typography.bodyMedium
     )
 }
 
@@ -103,10 +105,12 @@ fun SettingListItem(
         Text(headline)
     },
     supportingContent = supporting?.let {
-        { Text(it) }
+        { Text(it, color = MaterialTheme.colorScheme.onSurfaceVariant) }
     },
     leadingContent = leadingContent,
     trailingContent = trailingContent,
     onClick = onClick,
-    morePaddingForPureText = true
+    morePaddingForPureText = true,
+    headlineTextStyle = MaterialTheme.typography.titleMedium.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.Normal),
+    supportingTextStyle = MaterialTheme.typography.bodyMedium
 )
