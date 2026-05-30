@@ -29,6 +29,7 @@ import own.moderpach.extinguish.R
 import own.moderpach.extinguish.settings.components.EnablerCard
 import own.moderpach.extinguish.settings.components.RadioCard
 import own.moderpach.extinguish.settings.components.SettingCard
+import own.moderpach.extinguish.settings.components.SettingGroup
 import own.moderpach.extinguish.settings.components.SettingLazyColumn
 import own.moderpach.extinguish.settings.components.SettingListItem
 import own.moderpach.extinguish.settings.components.SettingListItemWithSwitch
@@ -88,22 +89,26 @@ fun VolumeKeyControlScreen(
                 )
             }
             item {
-                SettingCard {
-                    SettingListItemWithSwitch(
-                        headline = stringResource(R.string.str_clickToTurnScreenOn),
-                        checked = settingsRepository.volumeKeyEvent.clickToTurnScreenOn,
-                        onCheckedChange = {
-                            settingsRepository.volumeKeyEvent.clickToTurnScreenOn = it
-                        }
-                    )
-                    SettingListItemWithSwitch(
-                        headline = stringResource(R.string.str_clickToTurnScreenOff),
-                        checked = settingsRepository.volumeKeyEvent.clickToTurnScreenOff,
-                        onCheckedChange = {
-                            settingsRepository.volumeKeyEvent.clickToTurnScreenOff = it
-                        }
-                    )
-                }
+                SettingGroup(
+                    {
+                        SettingListItemWithSwitch(
+                            headline = stringResource(R.string.str_clickToTurnScreenOn),
+                            checked = settingsRepository.volumeKeyEvent.clickToTurnScreenOn,
+                            onCheckedChange = {
+                                settingsRepository.volumeKeyEvent.clickToTurnScreenOn = it
+                            }
+                        )
+                    },
+                    {
+                        SettingListItemWithSwitch(
+                            headline = stringResource(R.string.str_clickToTurnScreenOff),
+                            checked = settingsRepository.volumeKeyEvent.clickToTurnScreenOff,
+                            onCheckedChange = {
+                                settingsRepository.volumeKeyEvent.clickToTurnScreenOff = it
+                            }
+                        )
+                    }
+                )
             }
             item {
                 SettingCard(

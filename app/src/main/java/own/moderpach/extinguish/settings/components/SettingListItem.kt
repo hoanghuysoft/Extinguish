@@ -50,12 +50,12 @@ fun SettingListItem(
     headline: String,
     supporting: String? = null,
     icon: ImageVector? = null,
-    iconContainerColor: Color = Color.Transparent,
-    iconColor: Color = Color.Unspecified,
+    iconContainerColor: Color = androidx.compose.material3.MaterialTheme.colorScheme.primaryContainer,
+    iconColor: Color = androidx.compose.material3.MaterialTheme.colorScheme.onPrimaryContainer,
     leadingContent: @Composable() (RowScope.() -> Unit)? = null,
     trailingContent: @Composable() (RowScope.() -> Unit)? = null,
-    shape: Shape = RoundedCornerShape(20.dp),
-    containerColor: Color = MaterialTheme.colorScheme.surfaceContainerHigh,
+    shape: Shape = LocalSettingShape.current,
+    cardContainerColor: Color = androidx.compose.material3.MaterialTheme.colorScheme.surfaceContainerHigh,
     onClick: (() -> Unit)? = null,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -104,7 +104,7 @@ fun SettingListItem(
             .fillMaxWidth()
             .clip(animatedShape),
         shape = animatedShape,
-        colors = CardDefaults.cardColors(containerColor = containerColor),
+        colors = CardDefaults.cardColors(containerColor = cardContainerColor),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
         val clickableModifier = if (onClick != null) {

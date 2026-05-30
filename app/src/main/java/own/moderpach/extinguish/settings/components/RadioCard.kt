@@ -14,6 +14,16 @@ import own.moderpach.extinguish.ui.components.ExtinguishCardDefault
 import own.moderpach.extinguish.ui.components.ExtinguishListItem
 import own.moderpach.extinguish.ui.theme.ExtinguishTheme
 
+import own.moderpach.extinguish.settings.components.LocalSettingShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.layout.fillMaxWidth
+
 @Composable
 fun RadioCard(
     modifier: Modifier = Modifier,
@@ -22,28 +32,33 @@ fun RadioCard(
     headline: String,
     supporting: String?
 ) {
-    val border = if (selected) BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
-    else ExtinguishCardDefault.border
-    ExtinguishCard(
+    val shape = LocalSettingShape.current
+    val border = if (selected) BorderStroke(2.dp, MaterialTheme.colorScheme.primary) else null
+    
+    Card(
+        modifier = modifier.fillMaxWidth().clip(shape),
+        shape = shape,
         border = border,
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-        onClick = onClick,
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+        ),
+        onClick = { onClick?.invoke() },
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-        ExtinguishListItem(
+        ListItem(
             headlineContent = {
                 Text(headline)
             },
             trailingContent = {
                 RadioButton(selected, null)
             },
-            containerColor = MaterialTheme.colorScheme.surfaceContainerLowest,
-            morePaddingForPureText = false
+            colors = ListItemDefaults.colors(containerColor = Color.Transparent)
         )
         supporting?.let {
             Text(
-                supporting,
+                it,
                 style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
             )
         }
     }

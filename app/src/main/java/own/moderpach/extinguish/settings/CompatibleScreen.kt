@@ -19,7 +19,7 @@ import androidx.navigation.NavGraphBuilder
 import own.moderpach.extinguish.ExtinguishNavGraph
 import own.moderpach.extinguish.ExtinguishNavRoute
 import own.moderpach.extinguish.R
-import own.moderpach.extinguish.settings.components.SettingCard
+import own.moderpach.extinguish.settings.components.SettingGroup
 import own.moderpach.extinguish.settings.components.SettingLazyColumn
 import own.moderpach.extinguish.settings.components.SettingListItemWithSwitch
 import own.moderpach.extinguish.settings.data.ISettingsRepository
@@ -68,16 +68,18 @@ fun CompatibleScreen(
             contentPadding = innerPadding,
         ) {
             item {
-                SettingCard {
-                    SettingListItemWithSwitch(
-                        headline = stringResource(R.string.str_brightnessManualWhenScreenOff),
-                        supporting = stringResource(R.string.str_brightnessManualWhenScreenOff_supporting),
-                        checked = settingsRepository.compatibility.brightnessManualWhenScreenOff,
-                        onCheckedChange = {
-                            settingsRepository.compatibility.brightnessManualWhenScreenOff = it
-                        }
-                    )
-                }
+                SettingGroup(
+                    {
+                        SettingListItemWithSwitch(
+                            headline = stringResource(R.string.str_brightnessManualWhenScreenOff),
+                            supporting = stringResource(R.string.str_brightnessManualWhenScreenOff_supporting),
+                            checked = settingsRepository.compatibility.brightnessManualWhenScreenOff,
+                            onCheckedChange = {
+                                settingsRepository.compatibility.brightnessManualWhenScreenOff = it
+                            }
+                        )
+                    }
+                )
             }
 
         }

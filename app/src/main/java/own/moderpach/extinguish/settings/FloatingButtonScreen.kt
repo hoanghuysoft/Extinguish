@@ -20,7 +20,7 @@ import own.moderpach.extinguish.ExtinguishNavGraph
 import own.moderpach.extinguish.ExtinguishNavRoute
 import own.moderpach.extinguish.R
 import own.moderpach.extinguish.settings.components.EnablerCard
-import own.moderpach.extinguish.settings.components.SettingCard
+import own.moderpach.extinguish.settings.components.SettingGroup
 import own.moderpach.extinguish.settings.components.SettingLazyColumn
 import own.moderpach.extinguish.settings.components.SettingListItemWithSlider
 import own.moderpach.extinguish.settings.components.SettingListItemWithSwitch
@@ -79,72 +79,86 @@ fun FloatingButtonScreen(
                 )
             }
             item {
-                SettingCard {
-                    SettingListItemWithSwitch(
-                        headline = stringResource(R.string.str_autoMoveToEdge),
-                        checked = settingsRepository.floatingButton.autoMoveToEdge,
-                        onCheckedChange = {
-                            settingsRepository.floatingButton.autoMoveToEdge = it
-                        }
-                    )
-                    SettingListItemWithSwitch(
-                        headline = stringResource(R.string.str_fadeWhenUnused),
-                        checked = settingsRepository.floatingButton.fadeWhenUnused,
-                        onCheckedChange = {
-                            settingsRepository.floatingButton.fadeWhenUnused = it
-                        }
-                    )
-                    SettingListItemWithSlider(
-                        overline = stringResource(R.string.str_fadeTransparency),
-                        value = settingsRepository.floatingButton.fadeTransparency,
-                        onValueChangeFinished = {
-                            settingsRepository.floatingButton.fadeTransparency = it
-                        },
-                        valueRange = 0.2f..1f,
-                        steps = 15
-                    )
-                }
+                SettingGroup(
+                    {
+                        SettingListItemWithSwitch(
+                            headline = stringResource(R.string.str_autoMoveToEdge),
+                            checked = settingsRepository.floatingButton.autoMoveToEdge,
+                            onCheckedChange = {
+                                settingsRepository.floatingButton.autoMoveToEdge = it
+                            }
+                        )
+                    },
+                    {
+                        SettingListItemWithSwitch(
+                            headline = stringResource(R.string.str_fadeWhenUnused),
+                            checked = settingsRepository.floatingButton.fadeWhenUnused,
+                            onCheckedChange = {
+                                settingsRepository.floatingButton.fadeWhenUnused = it
+                            }
+                        )
+                    },
+                    {
+                        SettingListItemWithSlider(
+                            overline = stringResource(R.string.str_fadeTransparency),
+                            value = settingsRepository.floatingButton.fadeTransparency,
+                            onValueChangeFinished = {
+                                settingsRepository.floatingButton.fadeTransparency = it
+                            },
+                            valueRange = 0.2f..1f,
+                            steps = 15
+                        )
+                    }
+                )
             }
             item {
-                SettingCard {
-                    SettingListItemWithSwitch(
-                        headline = stringResource(R.string.str_blackStyle),
-                        checked = settingsRepository.floatingButton.blackStyle,
-                        onCheckedChange = {
-                            settingsRepository.floatingButton.blackStyle = it
-                        }
-                    )
-                }
+                SettingGroup(
+                    {
+                        SettingListItemWithSwitch(
+                            headline = stringResource(R.string.str_blackStyle),
+                            checked = settingsRepository.floatingButton.blackStyle,
+                            onCheckedChange = {
+                                settingsRepository.floatingButton.blackStyle = it
+                            }
+                        )
+                    }
+                )
             }
             item {
-                SettingCard {
-                    SettingListItemWithSwitch(
-                        headline = stringResource(R.string.str_showTimerButton),
-                        checked = settingsRepository.floatingButton.showTimerButton,
-                        onCheckedChange = {
-                            settingsRepository.floatingButton.showTimerButton = it
-                        }
-                    )
-                    SettingListItemWithSwitch(
-                        headline = stringResource(R.string.str_mergeTimerButton),
-                        supporting = stringResource(R.string.str_mergeTimerButton_supporting),
-                        checked = settingsRepository.floatingButton.mergeTimerButton,
-                        onCheckedChange = {
-                            settingsRepository.floatingButton.mergeTimerButton = it
-                        }
-                    )
-                }
+                SettingGroup(
+                    {
+                        SettingListItemWithSwitch(
+                            headline = stringResource(R.string.str_showTimerButton),
+                            checked = settingsRepository.floatingButton.showTimerButton,
+                            onCheckedChange = {
+                                settingsRepository.floatingButton.showTimerButton = it
+                            }
+                        )
+                    },
+                    {
+                        SettingListItemWithSwitch(
+                            headline = stringResource(R.string.str_mergeTimerButton),
+                            supporting = stringResource(R.string.str_mergeTimerButton_supporting),
+                            checked = settingsRepository.floatingButton.mergeTimerButton,
+                            onCheckedChange = {
+                                settingsRepository.floatingButton.mergeTimerButton = it
+                            }
+                        )
+                    }
+                )
             }
             item {
-                SettingCard {
-                    SettingListItemWithSwitch(
-                        headline = stringResource(R.string.str_hideWhenScreenOff),
-                        checked = settingsRepository.floatingButton.hideWhenScreenOff,
-                        onCheckedChange = {
-                            settingsRepository.floatingButton.hideWhenScreenOff = it
-                        }
-                    )
-                }
+                SettingGroup(
+                    {
+                        SettingListItemWithSwitch(
+                            headline = stringResource(R.string.str_hideWhenScreenOff),
+                            checked = settingsRepository.floatingButton.hideWhenScreenOff,
+                            onCheckedChange = {
+                                settingsRepository.floatingButton.hideWhenScreenOff = it
+                            }
+                        )
+                    }
+                )
             }
         }
 

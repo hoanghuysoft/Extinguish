@@ -32,6 +32,7 @@ import own.moderpach.extinguish.ExtinguishNavGraph
 import own.moderpach.extinguish.ExtinguishNavRoute
 import own.moderpach.extinguish.R
 import own.moderpach.extinguish.settings.components.SettingCard
+import own.moderpach.extinguish.settings.components.SettingGroup
 import own.moderpach.extinguish.settings.components.SettingLazyColumn
 import own.moderpach.extinguish.settings.components.SettingListItem
 import own.moderpach.extinguish.settings.data.ISettingsRepository
@@ -116,23 +117,29 @@ fun AboutScreen(
             contentPadding = innerPadding,
         ) {
             item {
-                SettingCard {
-                    SettingListItem(
-                        headline = stringResource(R.string.Version),
-                        supporting = BuildConfig.VERSION_NAME
-                    )
-                    SettingListItem(
-                        headline = stringResource(R.string.Developer),
-                        supporting = stringResource(R.string.moderpach)
-                    )
-                    SettingListItem(
-                        headline = stringResource(R.string.Repository),
-                        supporting = "https://github.com/Moderpach/Extinguish",
-                        onClick = {
-                            context.openUrlInBrowser("https://github.com/Moderpach/Extinguish")
-                        }
-                    )
-                }
+                SettingGroup(
+                    {
+                        SettingListItem(
+                            headline = stringResource(R.string.Version),
+                            supporting = BuildConfig.VERSION_NAME
+                        )
+                    },
+                    {
+                        SettingListItem(
+                            headline = stringResource(R.string.Developer),
+                            supporting = stringResource(R.string.moderpach)
+                        )
+                    },
+                    {
+                        SettingListItem(
+                            headline = stringResource(R.string.Repository),
+                            supporting = "https://github.com/Moderpach/Extinguish",
+                            onClick = {
+                                context.openUrlInBrowser("https://github.com/Moderpach/Extinguish")
+                            }
+                        )
+                    }
+                )
             }
             item {
                 SettingCard(
