@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "extinguish.shizuku_service"
-    compileSdk = 35
+    compileSdk = 37
 
     buildFeatures {
         buildConfig = true
@@ -35,7 +35,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "21"
     }
 }
 

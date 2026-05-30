@@ -27,7 +27,7 @@ configure<AllOpenExtension> {
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }*/
 
 dependencies {
@@ -36,14 +36,14 @@ dependencies {
 }
 
 tasks.withType<JavaCompile> {
-    sourceCompatibility = "17"
-    targetCompatibility = "17"
+    sourceCompatibility = "21"
+    targetCompatibility = "21"
 }
 
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "21"
     }
 }
 

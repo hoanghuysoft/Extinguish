@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "own.moderpach.extinguish"
-    compileSdk = 34
+    compileSdk = 37
 
     buildFeatures {
         buildConfig = true
@@ -17,9 +17,9 @@ android {
     defaultConfig {
         applicationId = "own.moderpach.extinguish"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 35
-        versionName = "0.9.5.1"
+        targetSdk = 37
+        versionCode = 37
+        versionName = "1.0.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         vectorDrawables {
