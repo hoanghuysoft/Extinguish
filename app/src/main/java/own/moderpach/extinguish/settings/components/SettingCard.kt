@@ -28,8 +28,16 @@ val LocalSettingShape = compositionLocalOf<Shape> { RoundedCornerShape(20.dp) }
 @Composable
 fun SettingGroup(
     modifier: Modifier = Modifier,
-    vararg items: @Composable () -> Unit
+    item1: (@Composable () -> Unit)? = null,
+    item2: (@Composable () -> Unit)? = null,
+    item3: (@Composable () -> Unit)? = null,
+    item4: (@Composable () -> Unit)? = null,
+    item5: (@Composable () -> Unit)? = null,
+    item6: (@Composable () -> Unit)? = null,
+    item7: (@Composable () -> Unit)? = null,
+    item8: (@Composable () -> Unit)? = null,
 ) {
+    val items = listOfNotNull(item1, item2, item3, item4, item5, item6, item7, item8)
     Column(modifier = modifier.fillMaxWidth()) {
         items.forEachIndexed { index, item ->
             val shape = when {
