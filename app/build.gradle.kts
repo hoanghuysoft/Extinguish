@@ -27,7 +27,7 @@ android {
         }
 
         ksp {
-            arg("room.schemaLocation", "$projectDir/schemas")
+            arg("room.schemaLocation", "${project.projectDir}/schemas")
         }
     }
 
